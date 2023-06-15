@@ -5,30 +5,41 @@
     <div class="card-body">
         <div class="row">
             <div class="col-md-2">
-                <div class="col-md-4">
-                </div>
+                Filtrar por:
+            </div>
+            <div class="col-md-4">
+                <input class="form-control" name="filter" type="text" [(ngModel)]="listFilter">
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <h3>Filtro:</h3>
+                    <h3>Filtro: {{listFilter}}</h3>
                 </div>
             </div>
             <div class="table-responsive">
-                <table class="table" *ngIf="alumnos">
+                <table class="table" *ngIf="alumnosIric">
                     <thead>
-                      <tr>
-                        <th >Matricula</th>
-                        <th >Nombre</th>
-                        <th >Edad</th>
-                        <th >Correo</th>
-                        <th >Pago</th>
-                        <th >Foto</th>
-                      </tr>
+                        <tr>
+                            <th><button class="btn btn-primary"
+                                    (click)="showImagen()">{{muestraImg?'Ocultar':'Muestra'}}</button></th>
+                            <th>Matricula</th>
+                            <th>Nombre</th>
+                            <th>Edad</th>
+                            <th>Correo</th>
+                            <th>Pago</th>
+                        </tr>
                     </thead>
                     <tbody>
-                      
+                        <tr *ngFor="let alumno of alumnosIric">
+                            <th><img [src]="alumno.foto" [title]="alumno.nombre" [style.width.px]="imageWith"
+                                    [style.margin.px]="imageMargin" *ngIf="muestraImg"></th>
+                            <th>{{alumno.matricula}}</th>
+                            <th>{{alumno.nombre}}</th>
+                            <th>{{alumno.edad}}</th>
+                            <th>{{alumno.correo}}</th>
+                            <th>{{alumno.pago}}</th>
+                        </tr>
                     </tbody>
-                  </table>
+                </table>
             </div>
         </div>
     </div>
