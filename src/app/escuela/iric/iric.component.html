@@ -12,7 +12,7 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <h3>Filtro: {{listFilter}}</h3>
+                    <h3>Filtro: {{listFilter }}</h3>
                 </div>
             </div>
             <div class="table-responsive">
@@ -21,22 +21,26 @@
                         <tr>
                             <th><button class="btn btn-primary"
                             (click)="showImagen()">{{muestraImg?'Ocultar':'Mostrar'}}</button></th>
+
                             <th>Matricula</th>
                             <th>Nombre</th>
                             <th>Edad</th>
                             <th>Correo</th>
                             <th>Pago</th>
+                            <th>Calificacion</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let alumno of alumnosIric">
+                        <tr *ngFor="let alumno of alumnosIric | alumnosFilter:listFilter">
                             <th><img [src]="alumno.foto" [title]="alumno.nombre" [style.width.px]="imageWith"
                                     [style.margin.px]="imageMargin" *ngIf="muestraImg"></th>
                             <th>{{alumno.matricula}}</th>
-                            <th>{{alumno.nombre}}</th>
+                            <th>{{alumno.nombre | uppercase}}</th>
                             <th>{{alumno.edad}}</th>
                             <th>{{alumno.correo}}</th>
-                            <th>{{alumno.pago}}</th>
+                            <th>{{alumno.pago | currency}}</th>
+                            <th>{{alumno.calif}}</th>
+                            <th><app-calificacion-alum [califica]="alumno.calif"></app-calificacion-alum></th>
                         </tr>
                     </tbody>
                 </table>
