@@ -13,6 +13,7 @@ import { OperasModule } from './escuela/formularios/operas/operas.module';
 import { AlumnosFilterPipe } from './escuela/alumnos-filter.pipe';
 import { CalificacionAlumComponent } from './escuela/calificacion-alum/calificacion-alum.component';
 import { AlumnoReactiveComponent } from './formularios/alumno-reactive/alumno-reactive.component';
+import { AppRoutingModule } from './app.routing.module';
 
 
 
@@ -34,7 +35,8 @@ import { AlumnoReactiveComponent } from './formularios/alumno-reactive/alumno-re
     FormsModule,
     BrowserAnimationsModule,
     OperasModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -11,7 +11,7 @@ export class CalificacionAlumComponent {
 
   @Output() calificaClick: EventEmitter<string>= new EventEmitter();
 
-  ngOnChanges(change: SimpleChange){
+  ngOnChanges(){
       this.starWidth=this.califica*76/100;
   }
 
